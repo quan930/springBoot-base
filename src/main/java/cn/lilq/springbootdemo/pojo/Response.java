@@ -1,0 +1,79 @@
+package cn.lilq.springbootdemo.pojo;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * @auther: Li Liangquan
+ * @date: 2020/10/4 08:38
+ */
+public class Response {
+    private String errorMsg;
+    private List<Book> books;
+    private Fiery fiery;
+
+    public Response() {
+    }
+
+    public Response(String errorMsg, List<Book> books, Fiery fiery) {
+        this.errorMsg = errorMsg;
+        this.books = books;
+        this.fiery = fiery;
+    }
+
+    public Response(String errorMsg, Book book, Fiery fiery) {
+        this.errorMsg = errorMsg;
+        this.books = new ArrayList<>();
+        books.add(book);
+        this.fiery = fiery;
+    }
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
+    public Fiery getFiery() {
+        return fiery;
+    }
+
+    public void setFiery(Fiery fiery) {
+        this.fiery = fiery;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Response response = (Response) o;
+        return Objects.equals(errorMsg, response.errorMsg) &&
+                Objects.equals(books, response.books) &&
+                Objects.equals(fiery, response.fiery);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(errorMsg, books, fiery);
+    }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "errorMsg='" + errorMsg + '\'' +
+                ", books=" + books +
+                ", fiery=" + fiery +
+                '}';
+    }
+}
