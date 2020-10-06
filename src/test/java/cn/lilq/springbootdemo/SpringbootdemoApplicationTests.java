@@ -1,11 +1,15 @@
 package cn.lilq.springbootdemo;
 
+import cn.lilq.springbootdemo.pojo.Book;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
@@ -63,5 +67,14 @@ class SpringbootdemoApplicationTests {
         redisTemplate.opsForHash().put("TestHash", "FirstElement", "Hello,Redis hash.");
         System.out.println(redisTemplate.opsForHash().hasKey("TestHash", "FirstElement"));
 //        Assert.assertTrue(redisTemplate.opsForHash().hasKey("TestHash", "FirstElement"));
+    }
+
+
+    @Test
+    void testGson(){
+        String s = "{\"12345\":{\"id\":12345,\"name\":\"linux网络编程\",\"mess\":\"代码好用\"}}";
+        ObjectMapper mapper=new ObjectMapper();
+        Book book =  mapper.convertValue(new Gson().fromJson(s, Map.class).values().toArray()[0], Book.class);
+        System.out.println(book);
     }
 }

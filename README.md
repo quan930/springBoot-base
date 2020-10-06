@@ -4,3 +4,4 @@
 + jpa
 + redis
 + 去除jackson并整合Gson
++ RabbitMQ
