@@ -35,9 +35,9 @@ public class MailCon {
     public Response sendSimpleMail(@RequestBody Mail mail){
         int res = jMailDAO.sendSimpleMail(mail);
         if (res!=-1)
-            return new Response("successful",(List<Book>)null,null,mail);
+            return new Response("successful",(List<Book>)null,null,mail,null);
         logger.error("发送失败"+mail);
-        return new Response("error",(List<Book>)null,null,null);
+        return new Response("error",(List<Book>)null,null,null,null);
     }
 
     /**
@@ -50,9 +50,9 @@ public class MailCon {
     public Response sendTemplateMail(@RequestBody Mail mail){
         int res = jMailDAO.sendTemplateMail(mail);
         if (res!=-1)
-            return new Response("successful",(List<Book>)null,null,mail);
+            return new Response("successful",(List<Book>)null,null,mail,null);
         logger.error("发送失败"+mail);
-        return new Response("error",(List<Book>)null,null,null);
+        return new Response("error",(List<Book>)null,null,null,null);
     }
 
 }

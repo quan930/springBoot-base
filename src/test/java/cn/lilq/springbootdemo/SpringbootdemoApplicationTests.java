@@ -1,6 +1,8 @@
 package cn.lilq.springbootdemo;
 
+import cn.lilq.springbootdemo.config.AliyunOSSConfig;
 import cn.lilq.springbootdemo.pojo.Book;
+import com.aliyun.oss.OSS;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
@@ -74,5 +76,15 @@ class SpringbootdemoApplicationTests {
         ObjectMapper mapper=new ObjectMapper();
         Book book =  mapper.convertValue(new Gson().fromJson(s, Map.class).values().toArray()[0], Book.class);
         System.out.println(book);
+    }
+
+    @Autowired
+    AliyunOSSConfig aliyunOSSConfig;
+    @Autowired
+    OSS ossClient;
+    @Test
+    void testOSS(){
+        System.out.println(aliyunOSSConfig);
+        System.out.println(ossClient);
     }
 }

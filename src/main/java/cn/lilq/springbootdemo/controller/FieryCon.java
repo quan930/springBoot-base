@@ -36,7 +36,7 @@ public class FieryCon {
     public Response getFieryById(@PathVariable Long id){
         String value = redisDAO.get(String.valueOf(id));
         logger.debug(value);
-        return new Response("successful",(List<Book>) null,new Gson().fromJson(value,Fiery.class),null);
+        return new Response("successful",(List<Book>) null,new Gson().fromJson(value,Fiery.class),null,null);
     }
 
     /**
@@ -49,7 +49,7 @@ public class FieryCon {
     public Response addFiery(@RequestBody Fiery fiery){
         String value = redisDAO.set(fiery.getId()+"",new Gson().toJson(fiery));
         logger.debug(value);
-        return new Response("successful",(List<Book>) null,fiery,null);
+        return new Response("successful",(List<Book>) null,fiery,null,null);
     }
 
 
@@ -65,6 +65,6 @@ public class FieryCon {
         fiery.setFiery(fiery.getFiery()+1);
         String value = redisDAO.set(fiery.getId()+"",new Gson().toJson(fiery));
         logger.debug(value);
-        return new Response("successful",(List<Book>) null,fiery,null);
+        return new Response("successful",(List<Book>) null,fiery,null,null);
     }
 }

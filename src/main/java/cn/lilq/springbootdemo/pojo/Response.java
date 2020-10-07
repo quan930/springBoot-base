@@ -13,23 +13,26 @@ public class Response {
     private List<Book> books;
     private Fiery fiery;
     private Mail mail;
+    private String url;
 
     public Response() {
     }
 
-    public Response(String errorMsg, List<Book> books, Fiery fiery,Mail mail) {
+    public Response(String errorMsg, List<Book> books, Fiery fiery,Mail mail,String url) {
         this.errorMsg = errorMsg;
         this.books = books;
         this.fiery = fiery;
         this.mail = mail;
+        this.url = url;
     }
 
-    public Response(String errorMsg, Book book, Fiery fiery,Mail mail) {
+    public Response(String errorMsg, Book book, Fiery fiery,Mail mail,String url) {
         this.errorMsg = errorMsg;
         this.books = new ArrayList<>();
         books.add(book);
         this.fiery = fiery;
         this.mail = mail;
+        this.url = url;
     }
 
     public String getErrorMsg() {
@@ -64,6 +67,14 @@ public class Response {
         this.mail = mail;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @Override
     public String toString() {
         return "Response{" +
@@ -71,6 +82,7 @@ public class Response {
                 ", books=" + books +
                 ", fiery=" + fiery +
                 ", mail=" + mail +
+                ", url='" + url + '\'' +
                 '}';
     }
 
@@ -82,11 +94,12 @@ public class Response {
         return Objects.equals(errorMsg, response.errorMsg) &&
                 Objects.equals(books, response.books) &&
                 Objects.equals(fiery, response.fiery) &&
-                Objects.equals(mail, response.mail);
+                Objects.equals(mail, response.mail) &&
+                Objects.equals(url, response.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(errorMsg, books, fiery, mail);
+        return Objects.hash(errorMsg, books, fiery, mail, url);
     }
 }

@@ -36,8 +36,8 @@ public class MQCon {
         Book book = rabbitMQDAO.receive();
         logger.debug("获取队列"+book);
         if (book==null)
-            return new Response("error",(List<Book>) null,null,null);;
-        return new Response("successful",book,null,null);
+            return new Response("error",(List<Book>) null,null,null,null);
+        return new Response("successful",book,null,null,null);
     }
 
     /**
@@ -52,7 +52,7 @@ public class MQCon {
         map.put(String.valueOf(book.getId()),book);
         rabbitMQDAO.sendDirect(map);
         logger.debug("生产队列"+book);
-        return new Response("successful",(List<Book>) null,null,null);
+        return new Response("successful",(List<Book>) null,null,null,null);
     }
 
     /**
@@ -67,6 +67,6 @@ public class MQCon {
         map.put(String.valueOf(book.getId()),book);
         rabbitMQDAO.sendTopic(map);
         logger.debug("发布订阅"+book);
-        return new Response("successful",(List<Book>) null,null,null);
+        return new Response("successful",(List<Book>) null,null,null,null);
     }
 }

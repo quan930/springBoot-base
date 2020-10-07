@@ -33,7 +33,7 @@ public class BookCon {
     @RequestMapping(value="/books/{id}", method= RequestMethod.GET)
     public Response getBook(@PathVariable Long id) {
         logger.debug("查询数据"+id);
-        return bookDAO.findById(id).map(value -> new Response("successful", value,null,null)).orElseGet(() -> new Response("error", (Book) null,null,null));
+        return bookDAO.findById(id).map(value -> new Response("successful", value,null,null,null)).orElseGet(() -> new Response("error", (Book) null,null,null,null));
     }
 
     /**
@@ -46,7 +46,7 @@ public class BookCon {
     public Response addBook(@RequestBody Book book){
         logger.debug("增加book"+book);
         bookDAO.save(book);
-        return new Response("successful",book,null,null);
+        return new Response("successful",book,null,null,null);
     }
 
     /**
@@ -61,9 +61,9 @@ public class BookCon {
         if (book.isPresent()){
             logger.debug("删除book"+id);
             bookDAO.deleteById(id);
-            return new Response("successful",book.get(),null,null);
+            return new Response("successful",book.get(),null,null,null);
         }else {
-            return new Response("error", (List<Book>) null,null,null);
+            return new Response("error", (List<Book>) null,null,null,null);
         }
     }
 
@@ -75,6 +75,6 @@ public class BookCon {
     @RequestMapping(value="/books", method=RequestMethod.GET)
     public Response bookList(){
         logger.debug("list"+bookDAO.findAll());
-        return new Response("successful",bookDAO.findAll(),null,null);
+        return new Response("successful",bookDAO.findAll(),null,null,null);
     }
 }

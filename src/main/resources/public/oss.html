@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>基于阿里云OSS存储的图床</title>
+</head>
+<body>
+
+<form action="/oss/upload" enctype="multipart/form-data" method="post">
+    <div>
+        <input type="file" name="file" accept="image/*">
+    </div>
+    <button type="submit" id="submit">上传</button>
+</form>
+</body>
+</html>
