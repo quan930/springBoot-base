@@ -12,21 +12,24 @@ public class Response {
     private String errorMsg;
     private List<Book> books;
     private Fiery fiery;
+    private Mail mail;
 
     public Response() {
     }
 
-    public Response(String errorMsg, List<Book> books, Fiery fiery) {
+    public Response(String errorMsg, List<Book> books, Fiery fiery,Mail mail) {
         this.errorMsg = errorMsg;
         this.books = books;
         this.fiery = fiery;
+        this.mail = mail;
     }
 
-    public Response(String errorMsg, Book book, Fiery fiery) {
+    public Response(String errorMsg, Book book, Fiery fiery,Mail mail) {
         this.errorMsg = errorMsg;
         this.books = new ArrayList<>();
         books.add(book);
         this.fiery = fiery;
+        this.mail = mail;
     }
 
     public String getErrorMsg() {
@@ -53,19 +56,12 @@ public class Response {
         this.fiery = fiery;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Response response = (Response) o;
-        return Objects.equals(errorMsg, response.errorMsg) &&
-                Objects.equals(books, response.books) &&
-                Objects.equals(fiery, response.fiery);
+    public Mail getMail() {
+        return mail;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(errorMsg, books, fiery);
+    public void setMail(Mail mail) {
+        this.mail = mail;
     }
 
     @Override
@@ -74,6 +70,23 @@ public class Response {
                 "errorMsg='" + errorMsg + '\'' +
                 ", books=" + books +
                 ", fiery=" + fiery +
+                ", mail=" + mail +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Response response = (Response) o;
+        return Objects.equals(errorMsg, response.errorMsg) &&
+                Objects.equals(books, response.books) &&
+                Objects.equals(fiery, response.fiery) &&
+                Objects.equals(mail, response.mail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(errorMsg, books, fiery, mail);
     }
 }

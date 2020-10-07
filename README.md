@@ -5,3 +5,4 @@
 + redis
 + 去除jackson并整合Gson
 + RabbitMQ
++ JavaMail(简单发送/thymeleaf模版发送)

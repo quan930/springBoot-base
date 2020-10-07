@@ -63,13 +63,11 @@ class SpringbootdemoApplicationTests {
         System.out.println(rightFirstElement);
     }
     @Test
-    public void testPut() {
+    void testPut() {
         redisTemplate.opsForHash().put("TestHash", "FirstElement", "Hello,Redis hash.");
         System.out.println(redisTemplate.opsForHash().hasKey("TestHash", "FirstElement"));
 //        Assert.assertTrue(redisTemplate.opsForHash().hasKey("TestHash", "FirstElement"));
     }
-
-
     @Test
     void testGson(){
         String s = "{\"12345\":{\"id\":12345,\"name\":\"linux网络编程\",\"mess\":\"代码好用\"}}";
