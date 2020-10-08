@@ -7,3 +7,4 @@
 + RabbitMQ
 + JavaMail(简单发送/thymeleaf模版发送)
 + 阿里云 OSS 对象存储
++ 拦截器

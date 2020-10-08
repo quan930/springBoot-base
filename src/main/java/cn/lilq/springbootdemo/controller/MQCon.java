@@ -17,6 +17,7 @@ import java.util.Map;
  * @auther: Li Liangquan
  * @date: 2020/10/6 09:01
  * mq controller  RabbitMQ测试类
+ * 拦截器  ?token=123
  */
 
 @Controller

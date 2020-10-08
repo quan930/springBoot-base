@@ -1,5 +1,7 @@
 package cn.lilq.springbootdemo.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -8,6 +10,7 @@ import java.util.Objects;
  * @auther: Li Liangquan
  * @date: 2020/10/4 08:38
  */
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class Response {
     private String errorMsg;
     private List<Book> books;

@@ -18,6 +18,7 @@ import java.util.List;
  * @date: 2020/10/4 19:47
  * 热度类 用于描述商品的热度
  * test redis
+ * 拦截器  ?token=123
  */
 @Controller
 public class FieryCon {

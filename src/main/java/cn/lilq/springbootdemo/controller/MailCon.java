@@ -18,6 +18,7 @@ import java.util.List;
 /**
  * @auther: Li Liangquan
  * @date: 2020/10/7 10:07
+ * 拦截器  ?token=123
  */
 @Controller
 public class MailCon {
